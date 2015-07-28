@@ -8,7 +8,7 @@
 
 **metrics-unifi.rb**
 
-Polls metrics from Ubiquity Networks Unifi wireless controllers
+Polls metrics from Ubiquiti Networks Unifi wireless controllers
 
 ## Files
  * bin/metrics-unifi.rb
