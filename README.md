@@ -6,7 +6,12 @@
 [![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-ubiquiti.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-ubiquiti)
 ## Functionality
 
+**metrics-unifi.rb**
+
+Polls metrics from Ubiquity Networks Unifi wireless controllers
+
 ## Files
+ * bin/metrics-unifi.rb
 
 ## Installation
 
