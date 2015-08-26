@@ -15,7 +15,7 @@
 #   gem: sensu-plugin
 #
 # USAGE:
-#   metrics-unifi.rb
+#   metrics-unifi.rb -c unifi.int.mycompany.co -i /dir/containing/unifi-get-stats/binary/ -u admin -p unifipassword
 #
 # NOTES:
 #
@@ -29,6 +29,7 @@
 require 'sensu-plugin/metric/cli'
 require 'open3'
 require 'socket'
+require 'json'
 
 # Collect unifi metrics
 class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
@@ -38,22 +39,23 @@ class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
          long: '--scheme SCHEME',
          default: "#{Socket.gethostname}.unifi"
 
-  option :hostname,
+  option :controller,
          description: 'Unifi AP controller hostname',
-         short: '-h HOSTNAME',
-         long: '--hostname HOSTNAME',
+         short: '-c HOSTNAME',
+         long: '--controller HOSTNAME',
          default: 'unifi'
 
   option :username,
          description: 'Username',
          short: '-u USERNAME',
          long: '--username USERNAME',
-         default: 'unifi'
+         default: 'admin'
 
   option :password,
          description: 'Password',
          short: '-p PASSWORD',
-         long: '--password PASSWORD'
+         long: '--password PASSWORD',
+         required: true
 
   option :path,
          description: 'Path to unifi-get-stats.py',
@@ -61,14 +63,15 @@ class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
          default: '/usr/local/bin'
 
   def unifi_stats
-    stdout, result = Open3.capture2("#{config[:path]}/unifi-get-stats.py -c #{config[:hostname]} -u #{config[:username]} -p #{config[:password]}")
+    unknown "Could not find #{config[:path]}/unifi-get-stats.py" unless File.exist?("#{config[:path]}/unifi-get-stats.py")
+    stdout, result = Open3.capture2("#{config[:path]}/unifi-get-stats.py -c #{config[:controller]} -u #{config[:username]} -p #{config[:password]}")
     unknown 'Unable to get Unifi AP stats' unless result.success?
     stdout
   end
 
   def run
-    unifi_stats = JSON.parse(unifi_stats)
-    unifi_stats.each do |metric, value|
+    stats = JSON.parse(unifi_stats)
+    stats.each do |metric, value|
       output "#{config[:scheme]}.#{metric}", value
     end
     ok
