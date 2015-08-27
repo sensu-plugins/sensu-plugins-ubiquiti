@@ -4,6 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-ubiquiti/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-ubiquiti)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-ubiquiti/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-ubiquiti)
 [![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-ubiquiti.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-ubiquiti)
+[ ![Codeship Status](https://codeship.com/projects/3031d890-2e9c-0133-9eef-3a2a4d3529b0/status?branch=master)](https://codeship.com/projects/99157)
 ## Functionality
 
 **metrics-unifi.rb**
@@ -12,10 +13,10 @@ Polls metrics from Ubiquiti Networks Unifi wireless controllers
 
 ## Files
  * bin/metrics-unifi.rb
+ * bin/unifi-get-stats.py
 
 ## Installation
 
 [Installation and Setup](http://sensu-plugins.io/docs/installation_instructions.html)
 
 ## Notes
-

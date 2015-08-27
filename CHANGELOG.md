@@ -5,7 +5,6 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## Unreleased
 
+0.0.1 - 08-24-2015
 ### Added
 - initial release of this sensu plugin repo
-
-
