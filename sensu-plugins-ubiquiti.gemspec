@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.date                   = Date.today.to_s
   s.description            = 'Sensu plugins for Ubiquiti network equipment'
   s.email                  = '<sensu-users@googlegroubiquiti.com>'
-  s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
+  s.executables            = Dir.glob('bin/**/*').map { |file| File.basename(file) }
   s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
   s.homepage               = 'https://github.com/sensu-plugins/sensu-plugins-ubiquiti'
   s.license                = 'MIT'
