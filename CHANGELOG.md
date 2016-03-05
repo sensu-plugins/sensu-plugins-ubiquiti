@@ -7,6 +7,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Fixed
 - Include unifi-get-stats.py in the gem
 
-## [0.0.1] - 08-24-2015
+## 0.0.1 - 08-24-2015
 ### Added
 - initial release of this sensu plugin repo
+
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/0.0.2...HEAD
