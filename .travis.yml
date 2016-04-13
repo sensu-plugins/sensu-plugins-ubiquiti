@@ -24,7 +24,7 @@ deploy:
     secure: pIZxc/c9Ue670IXlNQ3J+JDk15ne0dDJKwwt6D3Kxi80eqhT3atZLNugvJsDBBn3zAEpXhFURnAP++pHKT1lUkrhKeQCzsxiNzAzRxtCmsKBGdenrui7u5gWnZg0rMVIppGtkChQFWh67supO8eFemigSWZpU9OdrSw1bVgOZLjsS7hK8tS9GQMWNhNDhiW0XAkNP261gsKK1RWVzgKfdkMX9Kn2OZwHbARHrnHeus4XUNS/JmhYNMaSH5fZ0AYR5hxxIrk/LEr+De7lnj1Ttvsa37NRQUlgKYKixWpAGnGgdi16zpnw3wpfL3I7pb+LxbmLJ9hmzRnf1bvHDegOzg55tZrK7FoSBmWZhfKmFb7Lmy+0u0L/QJnpic72f7cRPnbSHgY6QSt1j9E2l+qsfp96hjKp5vYzDiuSTrwdShGc3hWqmtqmX0/cN7BsgBO6ZzX7k78Vrk4Pt3r7JhjIbQwtXC8O0ZzCfLRKtHbYFG6h8UDDVkwKSS7Uyg/QLbDLNLiGUMk8036mLOclRPTGDUDBJFJoHLo9hbNZewx+ddZbwzHMgFamwhkNwtgXv/xK2D00yMNzkhI29iZ+7UDVOrTzxTMBuOn9lWb77bFK4P0oYwj7qobkgs35GxX4mlbRWMaptx8ES3TZ2ZLNTXbwQv3L435DmKOERyLhyiT2uA4=
   gem: sensu-plugins-ubiquiti
   on:
-    ags: true
+    tags: true
     all_branches: true
     rvm: 1.9.3
     rvm: 2.0
