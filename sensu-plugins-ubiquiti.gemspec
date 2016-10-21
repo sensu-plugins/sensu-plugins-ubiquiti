@@ -2,24 +2,19 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'date'
-
-if RUBY_VERSION < '2.0.0'
-  require 'sensu-plugins-ubiquiti'
-else
-  require_relative 'lib/sensu-plugins-ubiquiti'
-end
+require_relative 'lib/sensu-plugins-ubiquiti'
 
 Gem::Specification.new do |s|
   s.authors                = ['Sensu-Plugins and contributors']
 
   s.date                   = Date.today.to_s
   s.description            = 'Sensu plugins for Ubiquiti network equipment'
-  s.email                  = '<sensu-users@googlegroubiquiti.com>'
+  s.email                  = '<sensu-users@googlegroups.com>'
   s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
   s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
   s.homepage               = 'https://github.com/sensu-plugins/sensu-plugins-ubiquiti'
   s.license                = 'MIT'
-  s.metadata               = { 'maintainer'         => '@tas50',
+  s.metadata               = { 'maintainer'         => 'sensu-plugin',
                                'development_status' => 'active',
                                'production_status'  => 'unstable - testing recommended',
                                'release_draft'      => 'false',
@@ -28,13 +23,14 @@ Gem::Specification.new do |s|
   s.platform               = Gem::Platform::RUBY
   s.post_install_message   = 'You can use the embedded Ruby by setting EMBEDDED_RUBY=true in /etc/default/sensu'
   s.require_paths          = ['lib']
-  s.required_ruby_version  = '>= 1.9.3'
+  s.required_ruby_version  = '>= 2.0.0'
 
   s.summary                = 'Sensu plugins for Ubiquiti network equipment'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsUbiquiti::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '~> 1.2'
+  s.add_runtime_dependency 'unifi-api',    '0.1.1'
 
   s.add_development_dependency 'bundler',                   '~> 1.7'
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'

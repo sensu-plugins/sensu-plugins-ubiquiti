@@ -1,5 +1,5 @@
 ## Sensu-Plugins-ubiquiti
-[ ![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-ubiquiti.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-ubiquiti)
+[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-ubiquiti.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-ubiquiti)
 [![Gem Version](https://badge.fury.io/rb/sensu-plugins-ubiquiti.svg)](http://badge.fury.io/rb/sensu-plugins-ubiquiti)
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-ubiquiti/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-ubiquiti)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-ubiquiti/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-ubiquiti)
@@ -13,7 +13,6 @@ Polls metrics from Ubiquiti Networks Unifi wireless controllers
 
 ## Files
  * bin/metrics-unifi.rb
- * bin/unifi-get-stats.py
 
 ## Installation
 
