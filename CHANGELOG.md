@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [1.0.0] - 2016-10-21
+
+Note: this release changes the check parameters due to removing the shell out to `unifi-get-stats.py`.
+
 ### Changed
 - Use `unifi-api` gem instead of shelling out to unifi-get-stats.py script
 - Update to Rubocop 0.40 and cleanup
@@ -15,8 +20,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 - Remove Ruby 1.9.3 support
 - Remove unused unifi-get-stats.py script
 
-## 0.0.1 - 08-24-2015
+## [0.0.1] - 2015-08-24
 ### Added
 - initial release of this sensu plugin repo
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/0.0.2...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/0.0.1...1.0.0
