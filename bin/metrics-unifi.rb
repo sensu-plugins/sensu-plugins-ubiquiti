@@ -84,8 +84,7 @@ class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
   end
 
   def run
-    metrics = unifi_stats
-    metrics.each do |metric, value|
+    unifi_stats.each do |metric, value|
       output "#{config[:scheme]}.#{metric}", value
     end
     ok
