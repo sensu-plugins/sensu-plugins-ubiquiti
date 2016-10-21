@@ -15,7 +15,7 @@
 #   gem: sensu-plugin
 #
 # USAGE:
-#   metrics-unifi.rb -c unifi.int.mycompany.co -i /dir/containing/unifi-get-stats/binary/ -u admin -p unifipassword
+#   metrics-unifi.rb -c unifi.int.mycompany.co -u admin -p unifipassword
 #
 # NOTES:
 #
@@ -27,9 +27,8 @@
 #
 
 require 'sensu-plugin/metric/cli'
-require 'open3'
 require 'socket'
-require 'json'
+require 'unifi/api'
 
 # Collect unifi metrics
 class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
@@ -57,21 +56,36 @@ class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
          long: '--password PASSWORD',
          required: true
 
-  option :path,
-         description: 'Path to unifi-get-stats.py',
-         short: '-i PATH',
-         default: '/usr/local/bin'
+  option :port,
+         description: 'Port',
+         short: '-P PORT',
+         long: '--port PORT',
+         default: 8443
+
+  option :unifi_version,
+         description: 'Unifi API version',
+         short: '-V VERSION',
+         long: '--unifi-version VERSION',
+         default: 'v4'
 
   def unifi_stats
-    unknown "Could not find #{config[:path]}/unifi-get-stats.py" unless File.exist?("#{config[:path]}/unifi-get-stats.py")
-    stdout, result = Open3.capture2("#{config[:path]}/unifi-get-stats.py -c #{config[:controller]} -u #{config[:username]} -p #{config[:password]}")
-    unknown 'Unable to get Unifi AP stats' unless result.success?
-    stdout
+    unifi = Unifi::Api::Controller.new(config[:controller], config[:username], config[:password], config[:port], config[:unifi_version])
+    aps = unifi.get_aps
+
+    metrics = Hash.new(0)
+
+    aps.each do |ap|
+      metrics['total'] += ap['num_sta']
+      metrics['guests'] += ap['guest-num_sta']
+      metrics['users'] += ap['user-num_sta']
+    end
+
+    metrics
   end
 
   def run
-    stats = JSON.parse(unifi_stats)
-    stats.each do |metric, value|
+    metrics = unifi_stats
+    metrics.each do |metric, value|
       output "#{config[:scheme]}.#{metric}", value
     end
     ok
