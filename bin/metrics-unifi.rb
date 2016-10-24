@@ -44,13 +44,13 @@ class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
          default: "#{Socket.gethostname}.unifi"
 
   option :controller,
-         description: 'Unifi AP controller hostname',
+         description: 'Unifi AP controller hostname (default: unifi)',
          short: '-c HOSTNAME',
          long: '--controller HOSTNAME',
          default: 'unifi'
 
   option :username,
-         description: 'Username',
+         description: 'Username (default: admin)',
          short: '-u USERNAME',
          long: '--username USERNAME',
          default: 'admin'
@@ -62,19 +62,19 @@ class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
          required: true
 
   option :port,
-         description: 'Port',
+         description: 'Port (default: 8443)',
          short: '-P PORT',
          long: '--port PORT',
          default: 8443
 
   option :unifi_version,
-         description: 'Unifi API version',
+         description: 'Unifi API version (default: v4)',
          short: '-V VERSION',
          long: '--unifi-version VERSION',
          default: 'v4'
 
   option :site_id,
-         description: 'Site ID',
+         description: 'Site ID (default: default)',
          short: '-S SITE ID',
          long: '--site-id SITE ID',
          default: 'default'
