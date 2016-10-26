@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [1.1.0] - 2016-10-26
 ### Added
 - Add `site_id` option for collecting metrics from a non-default site
 
@@ -26,5 +28,6 @@ Note: this release changes the check parameters due to removing the shell out to
 ### Added
 - initial release of this sensu plugin repo
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/0.0.1...1.0.0
