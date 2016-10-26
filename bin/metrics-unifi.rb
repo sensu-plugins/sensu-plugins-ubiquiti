@@ -15,10 +15,15 @@
 #   gem: sensu-plugin
 #
 # USAGE:
+#   collect metrics from the default site:
 #   metrics-unifi.rb -c unifi.int.mycompany.co -u admin -p unifipassword
 #
-# NOTES:
+#   collect metrics from site 'mywifi':
+#   metrics-unifi.rb -c unifi.int.mycompany.co -u admin -p unifipassword -S mywifi
 #
+# NOTES:
+#   Specify the site ID if using a non-default site. The site ID can be obtained from the
+#   web UI e.g. /manage/s/<site>/dashboard
 #
 # LICENSE:
 #   Copyright Eric Heydrick <eheydrick@gmail.com>
@@ -39,13 +44,13 @@ class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
          default: "#{Socket.gethostname}.unifi"
 
   option :controller,
-         description: 'Unifi AP controller hostname',
+         description: 'Unifi AP controller hostname (default: unifi)',
          short: '-c HOSTNAME',
          long: '--controller HOSTNAME',
          default: 'unifi'
 
   option :username,
-         description: 'Username',
+         description: 'Username (default: admin)',
          short: '-u USERNAME',
          long: '--username USERNAME',
          default: 'admin'
@@ -57,19 +62,25 @@ class UnifiMetrics < Sensu::Plugin::Metric::CLI::Graphite
          required: true
 
   option :port,
-         description: 'Port',
+         description: 'Port (default: 8443)',
          short: '-P PORT',
          long: '--port PORT',
          default: 8443
 
   option :unifi_version,
-         description: 'Unifi API version',
+         description: 'Unifi API version (default: v4)',
          short: '-V VERSION',
          long: '--unifi-version VERSION',
          default: 'v4'
 
+  option :site_id,
+         description: 'Site ID (default: default)',
+         short: '-S SITE ID',
+         long: '--site-id SITE ID',
+         default: 'default'
+
   def unifi_stats
-    unifi = Unifi::Api::Controller.new(config[:controller], config[:username], config[:password], config[:port], config[:unifi_version])
+    unifi = Unifi::Api::Controller.new(config[:controller], config[:username], config[:password], config[:port], config[:unifi_version], config[:site_id])
     aps = unifi.get_aps
 
     metrics = Hash.new(0)
