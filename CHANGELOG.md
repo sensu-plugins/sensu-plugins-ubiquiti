@@ -57,7 +57,8 @@ Note: this release changes the check parameters due to removing the shell out to
 ### Added
 - initial release of this sensu plugin repo
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/3.0.0...HEAD
+[2.0.0]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/2.0.0...3.0.0
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-ubiquiti/compare/0.0.1...1.0.0
