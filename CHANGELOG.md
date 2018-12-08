@@ -5,6 +5,18 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 
+## [3.0.0] - 2018-12-08
+### Breaking Changes
+- Update sensu-plugin to 3.0: https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#300---2018-12-04 @jaredledvina
+
+### Changes
+- Update rubocp to 0.57.2 @jaredledvina
+- Update codeclimate to 1.0 @jaredledvina
+- Update rake to 12.3 @jaredledvina
+- Update unifi-api to 0.1.2 @jaredledvina
+- Update github-markup to 3.0 @jaredledvina
+
+
 ## [2.0.0] - 2018-01-31
 ### Security
 - updated `rubocop` dependency to `~> 0.51.0` per: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8418. (@jaredledvina)
