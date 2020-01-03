@@ -5,6 +5,12 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 
+## [3.1.0] 2020-01-03
+
+- Updated for Bonsai 
+- Updated gemspec for use with sensu-go
+- Update travis requirements
+
 ## [3.0.0] - 2018-12-08
 ### Breaking Changes
 - Update sensu-plugin to 3.0: https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#300---2018-12-04 @jaredledvina
